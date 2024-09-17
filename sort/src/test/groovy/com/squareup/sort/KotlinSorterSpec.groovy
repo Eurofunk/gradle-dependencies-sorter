@@ -68,7 +68,7 @@ class KotlinSorterSpec extends Specification {
         ''', lineSeparator)
     Files.writeString(buildScript, fileContent)
 
-    def sorter = KotlinSorter.of(buildScript)
+    def sorter = KotlinSorter.of(buildScript, lineSeparator)
 
     expect:
     extractLineSeparators(sorter.rewritten()).every { it == lineSeparator }
@@ -152,7 +152,7 @@ class KotlinSorterSpec extends Specification {
           }
         ''', lineSeparator)
     Files.writeString(buildScript, fileContent)
-    def sorter = KotlinSorter.of(buildScript)
+    def sorter = KotlinSorter.of(buildScript, lineSeparator)
 
     expect:
     extractLineSeparators(sorter.rewritten()).every { it == lineSeparator }
@@ -197,7 +197,7 @@ class KotlinSorterSpec extends Specification {
           }
         ''', lineSeparator)
     Files.writeString(buildScript, fileContents)
-    def sorter = KotlinSorter.of(buildScript)
+    def sorter = KotlinSorter.of(buildScript, lineSeparator)
 
     expect:
     extractLineSeparators(sorter.rewritten()).every { it == lineSeparator }
@@ -231,7 +231,7 @@ class KotlinSorterSpec extends Specification {
     Files.writeString(buildScript, fileContents)
 
     when:
-    def newScript = KotlinSorter.of(buildScript).rewritten()
+    def newScript = KotlinSorter.of(buildScript, lineSeparator).rewritten()
 
     then:
     notThrown(BuildScriptParseException)
@@ -295,7 +295,7 @@ class KotlinSorterSpec extends Specification {
           println("hello, world")
         ''', lineSeparator)
     Files.writeString(buildScript, fileContents)
-    def sorter = KotlinSorter.of(buildScript)
+    def sorter = KotlinSorter.of(buildScript, lineSeparator)
 
     when:
     sorter.rewritten()
@@ -325,7 +325,7 @@ class KotlinSorterSpec extends Specification {
         }
       ''', lineSeparator)
     Files.writeString(buildScript, fileContents)
-    def sorter = KotlinSorter.of(buildScript)
+    def sorter = KotlinSorter.of(buildScript, lineSeparator)
 
     expect:
     extractLineSeparators(sorter.rewritten()).every { it == lineSeparator }
@@ -360,7 +360,7 @@ class KotlinSorterSpec extends Specification {
         }
       ''', lineSeparator)
     Files.writeString(buildScript, fileContents)
-    def sorter = KotlinSorter.of(buildScript)
+    def sorter = KotlinSorter.of(buildScript, lineSeparator)
 
     expect:
     extractLineSeparators(sorter.rewritten()).every { it == lineSeparator }
@@ -428,7 +428,7 @@ class KotlinSorterSpec extends Specification {
     Files.writeString(buildScript, fileContents)
 
     when:
-    def newScript = KotlinSorter.of(buildScript).rewritten()
+    def newScript = KotlinSorter.of(buildScript, lineSeparator).rewritten()
 
     then:
     notThrown(BuildScriptParseException)
@@ -474,7 +474,7 @@ class KotlinSorterSpec extends Specification {
     Files.writeString(buildScript, fileContents)
 
     when:
-    def newScript = KotlinSorter.of(buildScript).rewritten()
+    def newScript = KotlinSorter.of(buildScript, lineSeparator).rewritten()
 
     then:
     notThrown(BuildScriptParseException)
@@ -521,7 +521,7 @@ class KotlinSorterSpec extends Specification {
     Files.writeString(buildScript, fileContents)
 
     when:
-    def newScript = KotlinSorter.of(buildScript).rewritten()
+    def newScript = KotlinSorter.of(buildScript, lineSeparator).rewritten()
 
     then:
     notThrown(BuildScriptParseException)
@@ -566,7 +566,7 @@ class KotlinSorterSpec extends Specification {
       ''', lineSeparator)
     Files.writeString(buildScript, fileContents)
     when:
-    def newScript = KotlinSorter.of(buildScript).rewritten()
+    def newScript = KotlinSorter.of(buildScript, lineSeparator).rewritten()
 
     then:
     notThrown(BuildScriptParseException)
@@ -650,7 +650,7 @@ class KotlinSorterSpec extends Specification {
     Files.writeString(buildScript, fileContents)
 
     when:
-    def newScript = KotlinSorter.of(buildScript).rewritten()
+    def newScript = KotlinSorter.of(buildScript, lineSeparator).rewritten()
 
     then:
     extractLineSeparators(newScript).every { it == lineSeparator }
