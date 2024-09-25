@@ -48,8 +48,8 @@ abstract class CheckSortDependenciesTask @Inject constructor(
     }
 
     val resultText = when (result.exitValue) {
-      0 -> "The file is correctly sorted."
-      2 -> "The file is not correctly sorted."
+      0 -> "Dependencies are correctly sorted."
+      2 -> "Dependencies are not correctly sorted."
       3 -> "There were parse errors."
       else -> "The result code ${result.exitValue} is not known."
     }
